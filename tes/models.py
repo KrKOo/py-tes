@@ -108,8 +108,8 @@ def timestampconv(value: Optional[str]) -> Optional[datetime]:
     Returns:
         Converted value.
     """
-    if value is None:
-        return value
+    if value in (None, ""):
+        return None
     if isinstance(value, datetime):
         return value
     return dateutil.parser.parse(value)
